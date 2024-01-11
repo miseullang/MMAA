@@ -1,0 +1,43 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable.css");
+*{
+    margin: 0; padding: 0;
+    transition: border-color .4s, background .4s, opacity .4s, box-shadow .4s, height .4s;
+    /* Pretendard 우선하는 경우 */
+    font-family: "Pretendard Variable", Pretendard, -apple-system, system-ui, sans-serif;
+}
+ul,li{
+    list-style: none;
+}
+img{
+    width: 100%; height: 100%;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+}
+i,em{
+    font-style: normal;
+    color: inherit;
+    font-size: inherit;
+}
+body{
+    width: 100%;
+    height: 100%;
+}
+.wrap{
+    width: 100%; overflow: hidden;
+}
+.page{
+    width: 100%; height: 100vh;
+    position: relative;
+}
+address{
+    font-style: normal;
+}
+button{
+    color: inherit; background-color: inherit; font-size: inherit;
+    border: none;
+    cursor: pointer;
+}
+

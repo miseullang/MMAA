@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>군인공제회</title>
+    <link href="./css/common.css" type="text/css" rel="stylesheet">
+    <link href="./css/pc.css" type="text/css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script defer src="./script/script.js"></script>	
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <a href="#"><img src="./img/h_logo.png" alt="로고"></a>
+            <ul class="top_menu_wrap">
+                <li class="top_menu">
+					<a href="#">저축안내</a>
+					<ul class="sub_menu_wrap">
+						<li class="sub_menu">
+							<a href="#">퇴직급여</a>
+						</li>
+						<li class="sub_menu">
+							<a href="#">연금식 분할급여</a>
+						</li>
+						<li class="sub_menu">
+							<a href="#">예금형<br>목돈수탁저축</a>
+						</li>
+						<li class="sub_menu">
+							<a href="#">현역/예비역 회원 저축<br>(적립형)</a>
+						</li>
+						<li class="sub_menu">
+							<a href="#">연금형<br>목돈수탁저축</a>
+						</li>
+						<li class="sub_menu">
+							<a href="#">회원별 제도안내</a>
+						</li>
+					</ul>
+				</li>
+                <li class="top_menu">
+					<a href="#">대여안내</a>
+					<ul class="sub_menu_wrap">
+						<li class="sub_menu">
+							<a href="#">퇴직급여대여</a>
+						</li>
+						<li class="sub_menu">
+							<a href="#">목돈수탁대여</a>
+						</li>
+					</ul>
+				</li>
+                <li class="top_menu">
+					<a href="#">인터넷창구</a>
+					<ul class="sub_menu_wrap">
+						<li class="sub_menu">
+							<a href="#">마이페이지</a>
+						</li>
+						<li class="sub_menu">
+							<a href="#">저축</a>
+						</li>
+						<li class="sub_menu">
+							<a href="#">대여</a>
+						</li>
+					</ul>
+				</li>
+                <li class="top_menu">
+					<a href="#">복지포털</a>
+					<ul class="sub_menu_wrap">
+						<li class="sub_menu">
+							<a href="#">복지 한눈에 보기</a>
+						</li>
+						<li class="sub_menu">
+							<a href="#">복지부조</a>
+						</li>
+						<li class="sub_menu">
+							<a href="#">복지적립금</a>
+						</li>
+						<li class="sub_menu">
+							<a href="#">회원콘도</a>
+						</li>
+						<li class="sub_menu">
+							<a href="#">기타복지</a>
+						</li>
+						<li class="sub_menu">
+							<a href="#">복지플랫폼</a>
+						</li>
+					</ul>
+				</li>
+                <li class="top_menu">
+					<a href="#">주택정보</a>
+					<ul class="sub_menu_wrap">
+						<li class="sub_menu">
+							<a href="#">분양정보</a>
+						</li>
+						<li class="sub_menu">
+							<a href="#">분양신청안내</a>
+						</li>
+						<li class="sub_menu">
+							<a href="#">분양대금정보</a>
+						</li>
+						<li class="sub_menu">
+							<a href="#">인터넷주택청약</a>
+						</li>
+					</ul>
+				</li>
+                <li class="top_menu">
+					<a href="#">고객센터</a>
+					<ul class="sub_menu_wrap">
+						<li class="sub_menu">
+							<a href="#">자주 찾는 질문</a>
+						</li>
+						<li class="sub_menu">
+							<a href="#">문의하기</a>
+						</li>
+						<li class="sub_menu">
+							<a href="#">서식자료실</a>
+						</li>
+						<li class="sub_menu">
+							<a href="#">이벤트/설문조사</a>
+						</li>
+					</ul>
+				</li>
+                <li class="top_menu">
+					<a href="#">공제회 소개</a>
+					<ul class="sub_menu_wrap">
+						<li class="sub_menu">
+							<a href="#">공제회 한눈에 보기</a>
+						</li>
+						<li class="sub_menu">
+							<a href="#">공제회 소개</a>
+						</li>
+						<li class="sub_menu">
+							<a href="#">경영공시</a>
+						</li>
+						<li class="sub_menu">
+							<a href="#">홍보마당</a>
+						</li>
+						<li class="sub_menu">
+							<a href="#">윤리경영</a>
+						</li>
+						<li class="sub_menu">
+							<a href="#">신고센터</a>
+						</li>
+					</ul>
+				</li>
+            </ul>
+			<div class="menu_bg"></div>
+            <div class="header_tool_box">
+                <button onclick="searchBox()" class="btn_nomal"><i></i></button>
+                <a href="#"></a>
+            </div>
+			<div class="search_bg">
+				<form class="search_form">
+					<!-- <input type="hidden" name="siteCode" value="web">
+					<input type="hidden" name="searchCnd" value="all"> -->
+					<input type="text" name="schStr" id="searchTxt" placeholder="검색어를 입력해 주세요."class="srch-box" value="">
+					<button type="submit" name="schStrs" class="srch-btn"></button>
+					<div class="tags">
+						<p>#추천 검색어</p>
+						<div class="choice">
+						<!-- 추천검색어 import 시작-->					
+						<label class="ch_but" onclick="tagSearch('이벤트')">#이벤트</label>
+						<label class="ch_but" onclick="tagSearch('공지사항')">#공지사항</label>
+						<label class="ch_but" onclick="tagSearch('대여')">#대여</label>
+						<label class="ch_but" onclick="tagSearch('조회')">#조회</label>
+						<label class="ch_but" onclick="tagSearch('법률상담')">#법률상담</label>
+						<!-- 추천검색어 import 끝-->	
+						</div>
+					</div>
+				</form>
+			</div>
+            <input type="checkbox" id="menuicon">
+            <label for="menuicon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </header>
+        <section class="page main_page">
+			<video class="back_video" src="./img/mov3_n1.mp4" type="video/mp4" loop autoplay muted></video>
+            <div class="txt_box">
+                <h2 class="main_txt" style="animation-delay: 0s;">회원복지를 최우선으로</h2>
+                <h2 class="main_txt" style="animation-delay: 0.5s;">회원 곁에 군인공제회</h2>
+                <p class="main_txt_min" style="animation-delay: 1s;">회원의 자산을, 내집 마련의 희망을, 삶의 풍요를, 회원들에게 더 큰 만족과 감동을 plus</p>
+            </div>
+            <p class="scroll_box">
+                <span style="animation-delay: -0.2s;">s</span>
+                <span style="animation-delay: 0s;">c</span>
+                <span style="animation-delay: 0.2s;">r</span>
+                <span style="animation-delay: 0.4s;">o</span>
+                <span style="animation-delay: 0.6s;">l</span>
+                <span style="animation-delay: 0.8s;">l</span>
+            </p>
+        </section>
+        <section class="page product_page">
+            <p class="sub_title">상품 안내</p>
+            <h2 class="title">MMAA 저축 & 대여</h2>
+			<div class="product_info_wrap">
+				<h3 class="product_info">내 돈 관리,<br> <strong>저축</strong>부터 <strong>대여</strong>까지 스마트하게</h3>
+				<p>현명한 여유자금 관리를 위한 군인공제회의 금융 상품을 만나보세요</p>	
+			</div>
+			<div class="products_slide">
+				<!-- Slider main container -->
+				<div class="swiper">
+					<!-- Additional required wrapper -->
+					<div class="swiper-wrapper">
+						<!-- Slides -->
+						<div class="swiper-slide">
+							<h4 class="products_txt">적립형 목돈수탁</h4>
+							<p>
+								일반 금융기관보다 높은 이율과 안정성!<br>
+								목돈 마련의 지름길로 가볼까요?	
+							</p>
+							<div class="products_txt_bottom">
+								<em>(연복리)</em>
+								<h5>연 <strong>5.00</strong>%</h5>
+								<span>※ 2023.11.16. 기준</span>	
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<h4 class="products_txt">연금형 목돈수탁</h4>
+							<p>
+								목돈에 이자를 더해<br>
+								매월 또는 매년 연금처럼 돌려받는 제도로 여유자금을 관리해보세요. 	
+							</p>
+							<div class="products_txt_bottom">
+								<em>(매년지급식)</em>
+								<h5>연 <strong>5.00</strong>%</h5>
+								<span>※ 2024.1.1. 기준</span>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<h4 class="products_txt">연금식 분할급여</h4>
+							<p>
+								퇴직 후 따박따박 나오는 월급!<br>
+								연금식 분할급여에 그 비밀이 있어요.
+							</p>
+							<div class="products_txt_bottom">
+								<em>(매년지급식)</em>
+								<h5>연 <strong>5.00</strong>%</h5>
+								<span>※ 2023.11.16. 기준</span>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<h4 class="products_txt">퇴직급여</h4>
+							<p>
+								전역은 새로운 시작!<br>
+								복리로 차곡차곡 쌓이는 전역자금으로  전역 후 제 2의 인생을 준비하세요!
+							</p>
+							<div class="products_txt_bottom">
+								<em>(연복리)</em>
+								<h5>연 <strong>4.70</strong>%</h5>
+								<span>※ 2023.7.1. 기준</span>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<h4 class="products_txt">예금형 목돈수탁</h4>
+							<p>
+								일반 금융기관보다 높은 이율과 안정성!<br>
+								똑똑하게 여유자금을 관리해보세요.				
+							</p>
+							<div class="products_txt_bottom">
+								<em>(2년, 만기지급식)</em>
+								<h5>연 <strong>5.20</strong>%</h5>
+								<span>※ 2023.11.16. 기준</span>
+							</div>
+
+						</div>
+						<div class="swiper-slide">
+							<h4 class="products_txt">목돈수탁대여</h4>
+							<p>
+								목돈이 필요할 땐, 목돈수탁대여 제도!<br>
+								시중 대비 유리한 이자혜택으로  대여가 가능한 제도에요.
+							</p>
+							<a href="#">더 알아보기</a>
+						</div>
+						<div class="swiper-slide">
+							<h4 class="products_txt">퇴직급여대여</h4>
+							<p>
+								시중대비 유리한 이자 혜택으로<br>
+								퇴직급여의 90%까지 대여가 가능한 제도에요.
+							</p>
+							<a href="#">더 알아보기</a>
+						</div>
+					</div>
+					<!-- If we need pagination -->
+					<div class="swiper-pagination"></div>
+				</div>
+			</div>
+        </section>
+		<section class="page service_page">
+			<h3>군인 및 군무원에 대한 효율적인 공제제도를 확립하여<br>
+				생활안정과 복지증진을 도모하고 국군의 전략향상에 이바지하겠습니다.
+			</h3>
+			<ul class="service_con_box">
+				<li class="service_con">
+					<div class="numbering">01</div>
+					<a href="#" class="con_inner_box">
+						<h4>인터넷 창구</h4>
+						<p>행복한 미래를 위한 저축</p>
+						<p>저축에 관한 모든 것, 인터넷 창구에서</p>
+						<i></i>
+					</a>
+				</li>
+				<li class="service_con">
+					<div class="numbering">02</div>
+					<a href="#" class="con_inner_box">
+						<h4>복지 포털</h4>
+						<p>공제회 회원들을 위한 복지</p>
+						<p>군인공제회 복지플러스, 우리가족 행복플러스</p>
+						<i></i>
+					</a>
+				</li>
+				<li class="service_con customer_center">
+					<div class="numbering">03</div>
+					<h4>고객 센터</h4>
+					<div class="link_box common_cs">
+						<h5>일반</h5>
+						<a href="#">1599-9090</a>
+						<a href="#">1544-9090</a>
+					</div>
+					<div class="link_box specipic_cs">
+						<a href="#">자주 묻는 질문</a>
+						<a href="#">서식 다운 받기</a>	
+					</div>
+				</li>
+			</ul>
+		</section>
+		<section class="page reservist_page">
+			<div class="reservist_txt_wrap">
+				<h3>전역 회원도 이용하는 제도, 어떤 혜택이 있나요?</h3>
+				<p>한번 회원은 평생회원, <br class="m_br"><strong>전역</strong> · <strong>퇴직</strong> 후에도 제도를 이용하며 안정된 생활을 이어가세요!</p>
+				<div class="shortcut_but">
+					<a href="#">자세히 보기</a>
+				</div>	
+			</div>
+		</section>
+		<section class="page latest_news">
+			<p class="sub_title">최신 소식</p>
+            <h2 class="title">공지사항</h2>
+			<p class="news_txt">관련 법안, 업무, 모집 및 입찰 등 각종 공고</p>
+			<div class="latest_news_box">
+				<div class="latest_con">
+					<p>공지사항</p>
+					<h4>회원전용 콘도 회원권 구매 입찰 공고</h4>
+					<span>2023-11-30</span>
+				</div>
+				<div class="latest_con">
+					<p>공지사항</p>
+					<h4>차세대 시스템 전환에 따른 회원업무 중단 안내</h4>
+					<span>2023-11-24</span>
+				</div>
+				<div class="latest_con">
+					<p>공지사항</p>
+					<h4>군인공제회C&C 경력사원 채용공고</h4>
+					<span>2023-11-14</span>
+				</div>
+				<div class="latest_con">
+					<p>공지사항</p>
+					<h4>군인공제회법 개정 추진</h4>
+					<span>2023-11-10</span>
+				</div>
+			</div>
+			<div class="latest_news_box latest_news_box2">
+				<div class="latest_con">
+					<p>공지사항</p>
+					<h4>본회 정보시스템 점검에 따른 홈페이지 회원이메일(@mmaa.or.kr)서비스 일시 중단 안내</h4>
+					<span>2023-11-30</span>
+				</div>
+				<div class="latest_con">
+					<p>공지사항</p>
+					<h4>차세대 시스템 전환에 따른 회원업무 중단 안내</h4>
+					<span>2023-11-24</span>
+				</div>
+				<div class="latest_con">
+					<p>공지사항</p>
+					<h4>군인공제회C&C 경력사원 채용공고</h4>
+					<span>2023-11-14</span>
+				</div>
+				<div class="latest_con">
+					<p>공지사항</p>
+					<h4>군인공제회법 개정 추진</h4>
+					<span>2023-11-10</span>
+				</div>
+			</div>
+			<a class="view_more" href="#">더보기 <i>+</i></a>
+		</section>
+		<section class="page latest_news event_news">
+			<p class="sub_title">최신 소식</p>
+            <h2 class="title">이벤트</h2>
+			<p class="news_txt">온라인 / 오프라인 이벤트</p>
+			<div class="latest_news_box">
+				<div class="latest_con event_con">
+					<p>이벤트</p>
+					<h4>군인공제회 카카오채널 친구추가 이벤트</h4>
+					<span>2023-11-20</span>
+				</div>
+				<div class="latest_con event_con">
+					<p>이벤트</p>
+					<h4>연금식 분할급여 퀴즈 이벤트 당첨 안내</h4>
+					<span>2023-11-10</span>
+				</div>
+				<div class="latest_con event_con">
+					<p>이벤트</p>
+					<h4>추석맞이 문화활동 이벤트 당첨자 안내</h4>
+					<span>2023-09-27</span>
+				</div>
+				<div class="latest_con event_con">
+					<p>이벤트</p>
+					<h4>추석맞이 문화활동 이벤트</h4>
+					<span>2023-09-20</span>
+				</div>
+			</div>
+			<div class="latest_news_box latest_news_box2">
+				<div class="latest_con event_con">
+					<p>이벤트</p>
+					<h4>연금식 분할급여 퀴즈 이벤트</h4>
+					<span>2023-09-11</span>
+				</div>
+				<div class="latest_con event_con">
+					<p>이벤트</p>
+					<h4>7년 연속 흑자달성 기념 이벤트 당첨 안내</h4>
+					<span>2023-09-11</span>
+				</div>
+				<div class="latest_con event_con">
+					<p>이벤트</p>
+					<h4>7년 연속 흑자 달성 기념 이벤트(재공지)</h4>
+					<span>2023-09-11</span>
+				</div>
+				<div class="latest_con event_con">
+					<p>이벤트</p>
+					<h4>7년 연속 흑자 달성 기념 이벤트</h4>
+					<span>2023-09-11</span>
+				</div>
+			</div>
+			<a class="view_more" href="#">더보기 <i>+</i></a>
+		</section>
+		<section class="page plusNews_page">
+            <p class="sub_title">고객을 위한 소식</p>
+            <h2 class="title">플러스가 되는 소식</h2>
+			<div class="plus_news_box">
+				<a href="#" class="plus_con">
+					<img src="./img/plusnews_1.jpeg" alt="플러스가 되는 소식">
+				</a>
+				<a href="#" class="plus_con">
+					<img src="./img/plusnews_2.png" alt="플러스가 되는 소식">
+				</a>
+				<a href="#" class="plus_con">
+					<img src="./img/plusnews_3.png" alt="플러스가 되는 소식">
+				</a>
+			</div>
+        </section>
+		<section class="page sns_page">
+			<p class="sub_title">Social Network Service</p>
+            <h2 class="title">군인공제회 SNS</h2>
+			<h3 class="sns_txt">
+				더 자세한 정보를 얻으시려면 <strong class="color_blog">블로그</strong>를<br>
+				더 빠른 소식을 접하시려면 <strong class="color_kakao">카카오톡</strong>을<br>
+				공제회 소식을 자주 접하시려면 <strong class="color_letter">뉴스레터</strong>를 추천드립니다.
+			</h3>
+			<p class="news_txt">최고의 군 복지기관, 군인공제회입니다.<br class="m_br"> 군인공제회원을 위한 유익한 소식을 만나 보세요!</p>
+			<div class="sns_link_box">
+				<a href="#" class="sns_link">
+					<img src="./img/five_icon_blog.png" alt="블로그">
+					<span>블로그</span>
+					<em>→</em>
+				</a>
+				<a href="#" class="sns_link">
+					<img src="./img/five_icon_f.png" alt="페이스북">
+					<span>페이스북</span>
+					<em>→</em>
+				</a>
+				<a href="#" class="sns_link">
+					<img src="./img/five_icon_in.png" alt="인스타그램">
+					<span>인스타그램</span>
+					<em>→</em>
+				</a>
+				<a href="#" class="sns_link">
+					<img src="./img/five_icon_you.png" alt="유튜브">
+					<span>유튜브</span>
+					<em>→</em>
+				</a>
+				<a href="#" class="sns_link">
+					<img src="./img/five_icon_kakao.png" alt="카카오톡">
+					<span>카카오톡</span>
+					<em>→</em>
+				</a>
+				<a href="#" class="sns_link">
+					<img src="./img/five_icon_sns.png" alt="회보">
+					<span>회보</span>
+					<em>→</em>
+				</a>
+				<a href="#" class="sns_link">
+					<img src="./img/five_icon_news.png" alt="뉴스레터">
+					<span>뉴스레터</span>
+					<em>→</em>
+				</a>
+			</div>
+		</section>
+    </div>
+    <footer>
+		<div class="top_footer">
+			<ul class="footer_top_wrap">
+				<li><a href="#">개인정보처리방침</a></li>
+				<li><a href="#">전자민원 창구</a></li>
+				<li><a href="#">투자사업제안</a></li>
+				<li><a href="#">오시는 길</a></li>
+				<li><a href="#">사이트맵</a></li>
+				<li><a href="#">원격지원</a></li>
+				<li><a href="#">외부기관 관리자</a></li>
+			</ul>
+			<select class="business_site">
+				<option>산하사업체</option>
+				<option><a href="#">군인공제회 C&C</a></option>
+				<option><a href="#">엠플러스에프앤씨(주)</a></option>
+				<option><a href="#">공우이엔씨(주)</a></option>
+				<option><a href="#">대한토지신탁(주)</a></option>
+				<option><a href="#">한국캐피탈(주)</a></option>
+				<option><a href="#">엠플러스자산운용(주)</a></option>
+			</select>
+			<select class="family_site">
+				<option>관련사이트</option>
+				<option><a href="#">국방부</a></option>
+				<option><a href="#">육군</a></option>
+				<option><a href="#">해군</a></option>
+				<option><a href="#">공군</a></option>
+				<option><a href="#">해병대</a></option>
+				<option><a href="#">국가보훈부</a></option>
+				<option><a href="#">국방복지포털</a></option>
+				<option><a href="#">국방전직교육원</a></option>
+				<option><a href="#">국방홍보원</a></option>
+				<option><a href="#">군체력단련장</a></option>
+				<option><a href="#">방위사업청</a></option>
+				<option><a href="#">재향군인회</a></option>
+				<option><a href="#">전쟁기념관</a></option>
+			</select>
+		</div>
+		<div class="bottom_footer">
+			<p class="flogo">
+				<img src="./img/f_logo.png" alt="군인공제회 로고">
+			</p>
+			<ul class="f_text">
+				<li>(06292) 서울시 강남구 남부순환로 2806 군인공제회</li>
+				<li>고객센터(일반) : 1544-9090, 1599-9090</li>
+				<li>군인공제회 청렴신고센터(Hot-Line) : 메일신고 cjdqorfl@mmaa.or.kr</li>
+				<li>COPYRIGHT © THE MILITARY MUTUAL AID ASSOCIATION. ALL. RIGHTS RESERVED</li>
+			</ul>
+		</div>
+    </footer>
+		<!--
+	MMAA renuwal by.
+	  ____                        ___      
+	/\  _`\                      /\_ \     
+	\ \,\L\_\      __    __  __  \//\ \    
+	 \/_\__ \    /'__`\ /\ \/\ \   \ \ \   
+	   /\ \L\ \ /\  __/ \ \ \_\ \   \_\ \_ 
+	   \ `\____\\ \____\ \ \____/   /\____\
+		\/_____/ \/____/  \/___/    \/____/
+										   
+										    -->
+
+</body>
+</html>
