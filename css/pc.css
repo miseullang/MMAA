@@ -1,7 +1,6 @@
 /* 공통영역 */
-
 header{
-    position: fixed; z-index: 9999;
+    position: fixed; z-index: 999;
     width: 100%; height: 120px;
     display: flex; justify-content: left; align-items: center;
     padding: 0 3rem; box-sizing: border-box;
@@ -23,6 +22,7 @@ header{
 .m_br{
     display: none;
 }
+
 /* 공통영역 끝*/
 /* 헤더 ==================================================================*/
 header a{
@@ -145,13 +145,14 @@ header img{
     background: url(../img/h_nosearch_icon.png) center center no-repeat;
 }
 
-.header_tool_box a{
+.myPage{
     display: block;
     width: 24px;
     height: 24px;
     background: url(../img/icon-my.svg);
     background-position: 50% 50%;
     background-repeat: no-repeat;
+    border: transparent;
 }
 #menuicon{
     display: none;
@@ -193,6 +194,87 @@ header img{
     transform: rotate(-45deg);
 }
 
+/* 마이페이지 모달창 */
+.modalWin{
+    width: 100%;
+    position: fixed; top: 0; left: 0; z-index: 2;
+    visibility: hidden;
+}
+.modalBg{
+    width: 100%;
+    background-color: rgba(255,255,255,0.3);
+    filter: blur(20px);
+    position: fixed; top: 0; left: 0; z-index: 4;
+}
+.modal{
+    width: 360px; height: 430px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    padding: 24px; box-sizing: border-box;
+    position: fixed; top: calc(50% - 180px); left: calc(50% - 215px); z-index: 5;
+}
+.modalClose{
+    display: block;
+    width: 100%; height: 12px;
+    position: relative; z-index: 99999;
+}
+.modalClose img{
+    width: 12px; height: 12px;
+    position: absolute; top: 0; right: 0;
+}
+.modalLogo{
+    width: 100%; height: 24px;
+    margin-top: 1rem; margin-bottom: 2rem;
+}
+.modalLogo img{
+    object-fit: contain;
+    cursor: pointer;
+}
+.logInForm input{
+    width: 100%; height: 48px;
+    padding: 10px 5px; box-sizing: border-box;
+    font-size: 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 3px;
+    margin-bottom: 15px;
+}
+.logInForm button{
+    width: 100%; height: 48px;
+    border-radius: 3px;
+    background-color: #d90404; color: #ffffff;
+}
+.logInForm p{
+    width: 100%;
+    display: flex; justify-content: center; align-items: center;
+    padding: 10px 0; box-sizing: border-box;
+}
+.logInForm p a{
+    font-size: 13px;
+    margin: 0 5px;
+    padding-bottom : 3px;
+    color: #585858;
+    line-height: 1.38;
+    border-bottom: 1px solid #585858;
+}
+.easyLoginBox{
+    width: 100%;
+}
+.easyLoginBox span{
+    display: block;
+    width: 100%;
+    font-size: 13px; text-align: center;
+    color: #585858;
+    margin: 10px 0;
+}
+.easyLoginBox a{
+    display: block;
+    width: 100%; height: 48px;
+    line-height: 48px; text-align: center;
+    border-radius: 3px;
+    background-color: #fae100; color: #000000;
+}
+/* 마이페이지 모달창 끝 */
+
 /* 헤더 끝 ===============================================================*/
 
 /* 메인페이지  ============================================================ */
@@ -212,14 +294,15 @@ header img{
 .main_txt{
     padding: 0.5rem 0; box-sizing: border-box;
     font-size: 3.5rem;
-    animation: mainTxtMove 1s 1s;
 }
-.main_txt:nth-child(2){
-    animation-delay: 1s;
+.main_txt_animation{
+    animation: mainTxtMove 1s 1s;
 }
 .main_txt_min{
     padding: 0.5rem 0; box-sizing: border-box;
     font-size: 1.3rem;
+}
+.main_txt_min_animation{
     animation: mainMinTxtMove 1.0s 1.8s;
 }
 @keyframes mainTxtMove {
@@ -460,6 +543,7 @@ header img{
     width: 100%;
     display: flex; justify-content: center;
 }
+
 .shortcut_but a{
     display: inline-block;
     padding: 0.8rem 1.1rem; box-sizing: border-box;
@@ -467,13 +551,29 @@ header img{
     border: 1px solid #ffffff; 
     border-radius: 100px;
     margin: 1rem auto;
+    position: relative;
+    transition: all 0.4s;
+    overflow: hidden;
 }
+.shortcut_but a::before{
+    content: "";
+    position: absolute; top: 100%; left: 0; z-index: 99;
+    width: 100%; height: 100%;
+    background-color: #ffffff;
+}
+.shortcut_but a:hover ::before{
+    transform: translateY(-100%);
+}
+/* .shortcut_but a:hover{
+    color: #111;
+} */
 /* 예비군 안내 페이지 끝  =========================================================*/
 
 /* 최신 소식 =====================================================================*/
 .latest_news{
     padding-top: 120px; box-sizing: border-box;
 }
+
 .news_txt{
     width: 100%; text-align: center;
     padding: 3rem; box-sizing: border-box;
@@ -482,6 +582,13 @@ header img{
 .latest_news_box{
     width: 100%;
     display: flex; justify-content: space-around;
+    transform: scale(0.7) translateY(100%);
+    opacity: 0;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+.visible{
+    transform: scale(1) translateY(0);
+    opacity: 1;
 }
 .latest_con{
     width: calc(90% / 4);
@@ -619,11 +726,15 @@ header img{
     width: 100%; height: fit-content;
     display: flex; justify-content: space-around;
     margin-top: 10rem;
+    opacity: 0;
+    transform: translateX(50%);
+    transition: all 0.4s;
 }
 .plus_con{
     display: block;
     width: calc(90% / 3); overflow: hidden;
 }
+
 .plus_con img{
     border-radius: 1.1rem;
 }

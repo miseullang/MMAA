@@ -8,10 +8,30 @@
     <link href="./css/pc.css" type="text/css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script defer src="./script/script.js"></script>	
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<script defer src="./script/script.js"></script>	
 </head>
 <body>
     <div class="wrap">
+		<div class="modalWin">
+			<article class="modal">
+				<i class="modalClose"><img src="./img/h_nosearch_icon.png" alt="닫기"></i>
+				<h2 class="modalLogo"><img src="./img/h_logo.png" alt="메인로고"></h2>
+				<form class="logInForm">
+					<input type="email" placeholder="이메일">
+					<input type="password" placeholder="비밀번호">
+					<button type="submit">로그인</button>
+					<p><a href="#">아이디 찾기</a><a href="#">비밀번호 재설정</a><a href="#">회원가입</a></p>
+					<div class="easyLoginBox">
+						<span>간편로그인</span>
+						<!-- <a href="javascript:kakaoLogin();">카카오톡으로 로그인</a> -->
+						<a href="#">카카오톡으로 로그인</a>
+					</div>
+				</form>
+			</article>
+			<div class="modalBg">	
+		</div>
+		</div>
         <header>
             <a href="#"><img src="./img/h_logo.png" alt="로고"></a>
             <ul class="top_menu_wrap">
@@ -147,7 +167,7 @@
 			<div class="menu_bg"></div>
             <div class="header_tool_box">
                 <button onclick="searchBox()" class="btn_nomal"><i></i></button>
-                <a href="#"></a>
+                <button class="myPage"></button>
             </div>
 			<div class="search_bg">
 				<form class="search_form">

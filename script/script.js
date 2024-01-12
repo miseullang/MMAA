@@ -24,31 +24,9 @@ const bestSwiper = new Swiper('.products_slide .swiper', {
         disableOnInteraction:true
     },
 });
-
-// 헤더 안 검색버튼 클릭=> 헤더 아래로 검색창 토글, 검색버튼 스타일 변경
-let searchNum = 0;
-
-function searchBox() {
-    const searchBg = document.querySelector(".search_bg");
-    const headerSrhBtn = document.querySelector(".header_tool_box button");
-
-    searchNum = 1 - searchNum; // 0 <=> 1 토글용 변수
-
-    searchBg.style.opacity = searchNum;
-    headerSrhBtn.classList.remove(searchNum ? "btn_nomal" : "btn_on");
-    headerSrhBtn.classList.add(searchNum ? "btn_on" : "btn_nomal");
-}
-
-
-// 추천검색어 클릭하면 inputText 창에 입력되게 하기
-function tagSearch(tag){
-    const searchInput = document.querySelector("#searchTxt");
-    searchInput.value = tag;
-}
-
 // 헤더 자식 요소 hover => 헤더 배경색 변경
 const topMenuWrap = document.querySelector('.top_menu_wrap');
-  const header = document.querySelector('header');
+const header = document.querySelector('header');
 
   topMenuWrap.addEventListener('mouseover', () => {
       header.style.backgroundColor = '#ffffff'; // 호버 시 배경색 변경
@@ -59,11 +37,62 @@ const topMenuWrap = document.querySelector('.top_menu_wrap');
 
   });
 
+// 헤더 안 검색버튼 클릭=> 헤더 아래로 검색창 토글, 검색버튼 스타일 변경
+let searchNum = 0;
+
+function searchBox() {
+    const searchBg = document.querySelector(".search_bg");
+    const headerSrhBtn = document.querySelector(".header_tool_box button");
+    const headerBg = ['','#ffffff']
+
+    searchNum = 1 - searchNum; // 0 <=> 1 토글용 변수
+
+    searchBg.style.opacity = searchNum;
+    headerSrhBtn.classList.remove(searchNum ? "btn_nomal" : "btn_on");
+    headerSrhBtn.classList.add(searchNum ? "btn_on" : "btn_nomal");
+    header.style.backgroundColor = headerBg[searchNum];
+}
+
+
+// 추천검색어 클릭하면 inputText 창에 입력되게 하기
+function tagSearch(tag){
+    const searchInput = document.querySelector("#searchTxt");
+    searchInput.value = tag;
+}
+
+// 모달 배경(블러) 높이 지정
+// wrap크기 저장해서 가져오기
+const wrapHeight = document.querySelector(".wrap").offsetHeight;
+const modalWin = document.querySelector(".modalWin");
+const modalBg = document.querySelector(".modalBg");
+
+modalWin.style.height = `${wrapHeight}px`;
+modalBg.style.height = `${wrapHeight}px`;
+
+// 마이페이지 클릭하면 모달 창 열기
+const myPage = document.querySelector(".myPage");
+myPage.addEventListener('click',modalOpen);
+let myPageNum = 0;
+
+function modalOpen() {
+    const madalArr = ["hidden","visible"]
+    myPageNum = 1 - myPageNum;
+    modalWin.style.visibility = madalArr[myPageNum];
+}
+
+// 모달 창 안 닫기 버튼
+const modalClose = document.querySelector(".modalClose");
+modalClose.addEventListener('click',modalOpen);
+
+// 모달 블러 배경 눌렀을 때 닫히게 하기
+modalBg.addEventListener('click',modalOpen);
+
 // 스크롤이벤트 ==============================================================
+// 1. 배경 어두운 페이지에서 헤더 색상 변경
 const servicePage = document.querySelector(".service_page");
 const reservistPage = document.querySelector(".reservist_page");
 
-const observer = new IntersectionObserver((items) => {
+const headerObserver = new IntersectionObserver((items) => {
     items.forEach((item) => {
         if(item.isIntersecting) {
             header.style.color = '#ffffff';
@@ -75,8 +104,101 @@ const observer = new IntersectionObserver((items) => {
     threshold : 0.3
 });
 
-observer.observe(servicePage);
-observer.observe(reservistPage);
+headerObserver.observe(servicePage);
+headerObserver.observe(reservistPage);
+// 1. 배경 어두운 페이지에서 헤더 색상 변경 끝
 
+// 2. 페이지 로딩 애니메이션
+// 2-1) 메인페이지 텍스트 애니메이션
+const mainTxt = document.querySelectorAll(".main_txt");
 
+const mainTextObserver = new IntersectionObserver(
+    (texts) => {
+        texts.forEach((txt) => {
+            if(txt.isIntersecting) {
+                txt.target.classList.add("main_txt_animation");
+            } else {
+                txt.target.classList.remove("main_txt_animation");
+            }
+        });
 
+    }
+);
+mainTextObserver.observe(mainTxt[0])
+mainTextObserver.observe(mainTxt[1])
+// -----------------------------------/
+const mainTxtMin = document.querySelector(".main_txt_min");
+
+const mainTextMinObserver = new IntersectionObserver(
+    (textMin) => {
+        textMin.forEach((txtMin) => {
+            if(txtMin.isIntersecting) {
+                txtMin.target.classList.add("main_txt_min_animation");
+            } else {
+                txtMin.target.classList.remove("main_txt_min_animation");
+            }
+        });
+    }
+);
+mainTextMinObserver.observe(mainTxtMin)
+
+// 2-2) 최신소식 컨텐츠 감지되면 올라오면서 커지기
+const latestNewsBox = document.querySelectorAll(".latest_news_box");
+
+const swiperObserver = new IntersectionObserver(
+    (latestNews) => {
+        latestNews.forEach((News) => {
+            if (News.isIntersecting) {
+                News.target.classList.add("visible");
+            }else {
+                News.target.classList.remove("visible");
+            }
+        });
+    }
+);
+
+latestNewsBox.forEach((News) => swiperObserver.observe(News));
+// 2-2) 끝
+
+// 2-3) 플러스가 되는 소식
+const plusNewsPage = document.querySelector(".plusNews_page");
+const plusNewsBox = document.querySelector(".plus_news_box");
+
+const plusNewsObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                plusNewsBox.style.opacity = "1";
+                plusNewsBox.style.transform = "translateX(0)";
+            } else {
+                plusNewsBox.style.opacity = "0";
+                plusNewsBox.style.transform = "translateX(50%)";
+            }
+        });
+    },{
+        threshold: 0.5
+    }
+);
+
+plusNewsObserver.observe(plusNewsPage);
+
+//카카오톡 간편로그인 키
+// 6cd02b933f46ff0d3e8cef4ec7c118d1
+// window.Kakao.inti("6cd02b933f46ff0d3e8cef4ec7c118d1");
+
+// function kakaoLogin() {
+//     window.Kakao.Auth.login({
+//         // 받아올 개인정보
+//         scope:'profile_nickname, profile_image',
+//         success: function(authObj) {
+//             console.log(authObj);
+//             window.Kakao.API.request({
+//                 url:'/v2/user/me', //로그인 한 유저 정보 가져오기
+//                 success: res => {
+//                     const kakao_account = res.kakao_account;
+//                     console.log(kakao_account);
+//                 }
+//             });
+//         }
+//     });
+// }
