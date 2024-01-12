@@ -6,6 +6,9 @@
     <title>군인공제회</title>
     <link href="./css/common.css" type="text/css" rel="stylesheet">
     <link href="./css/pc.css" type="text/css" rel="stylesheet">
+	<link href="./css/labtop.css" type="text/css" rel="stylesheet">
+	<link href="./css/tab.css" type="text/css" rel="stylesheet">
+	<link href="./css/mobile.css" type="text/css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
@@ -164,6 +167,137 @@
 					</ul>
 				</li>
             </ul>
+			<!-- 탭/모바일용 숨김메뉴 -->
+			<ul class="mo_top_menu_wrap">
+                <li class="mo_top_menu">
+					<a href="#">저축안내</a>
+					<ul class="mo_sub_menu_wrap">
+						<li class="mo_sub_menu">
+							<a href="#">퇴직급여</a>
+						</li>
+						<li class="mo_sub_menu">
+							<a href="#">연금식 분할급여</a>
+						</li>
+						<li class="mo_sub_menu">
+							<a href="#">예금형<br>목돈수탁저축</a>
+						</li>
+						<li class="mo_sub_menu">
+							<a href="#">현역/예비역 회원 저축<br>(적립형)</a>
+						</li>
+						<li class="mo_sub_menu">
+							<a href="#">연금형<br>목돈수탁저축</a>
+						</li>
+						<li class="mo_sub_menu">
+							<a href="#">회원별 제도안내</a>
+						</li>
+					</ul>
+				</li>
+                <li class="mo_top_menu">
+					<a href="#">복지포털</a>
+					<ul class="mo_sub_menu_wrap">
+						<li class="mo_sub_menu">
+							<a href="#">복지 한눈에 보기</a>
+						</li>
+						<li class="mo_sub_menu">
+							<a href="#">복지부조</a>
+						</li>
+						<li class="mo_sub_menu">
+							<a href="#">복지적립금</a>
+						</li>
+						<li class="mo_sub_menu">
+							<a href="#">회원콘도</a>
+						</li>
+						<li class="mo_sub_menu">
+							<a href="#">기타복지</a>
+						</li>
+						<li class="mo_sub_menu">
+							<a href="#">복지플랫폼</a>
+						</li>
+					</ul>
+				</li>
+                <li class="mo_top_menu">
+					<a href="#">주택정보</a>
+					<ul class="mo_sub_menu_wrap">
+						<li class="mo_sub_menu">
+							<a href="#">분양정보</a>
+						</li>
+						<li class="mo_sub_menu">
+							<a href="#">분양신청안내</a>
+						</li>
+						<li class="mo_sub_menu">
+							<a href="#">분양대금정보</a>
+						</li>
+						<li class="mo_sub_menu">
+							<a href="#">인터넷주택청약</a>
+						</li>
+					</ul>
+				</li>
+                <li class="mo_top_menu">
+					<a href="#">고객센터</a>
+					<ul class="mo_sub_menu_wrap">
+						<li class="mo_sub_menu">
+							<a href="#">자주 찾는 질문</a>
+						</li>
+						<li class="mo_sub_menu">
+							<a href="#">문의하기</a>
+						</li>
+						<li class="mo_sub_menu">
+							<a href="#">서식자료실</a>
+						</li>
+						<li class="mo_sub_menu">
+							<a href="#">이벤트/설문조사</a>
+						</li>
+					</ul>
+				</li>
+                <li class="mo_top_menu">
+					<a href="#">공제회 소개</a>
+					<ul class="mo_sub_menu_wrap">
+						<li class="mo_sub_menu">
+							<a href="#">공제회 한눈에 보기</a>
+						</li>
+						<li class="mo_sub_menu">
+							<a href="#">공제회 소개</a>
+						</li>
+						<li class="mo_sub_menu">
+							<a href="#">경영공시</a>
+						</li>
+						<li class="mo_sub_menu">
+							<a href="#">홍보마당</a>
+						</li>
+						<li class="mo_sub_menu">
+							<a href="#">윤리경영</a>
+						</li>
+						<li class="mo_sub_menu">
+							<a href="#">신고센터</a>
+						</li>
+					</ul>
+				</li>
+				<li class="mo_top_menu">
+					<a href="#">대여안내</a>
+					<ul class="mo_sub_menu_wrap">
+						<li class="mo_sub_menu">
+							<a href="#">퇴직급여대여</a>
+						</li>
+						<li class="mo_sub_menu">
+							<a href="#">목돈수탁대여</a>
+						</li>
+					</ul>
+				</li>
+                <li class="mo_top_menu">
+					<a href="#">인터넷창구</a>
+					<ul class="mo_sub_menu_wrap">
+						<li class="mo_sub_menu">
+							<a href="#">마이페이지</a>
+						</li>
+						<li class="mo_sub_menu">
+							<a href="#">저축</a>
+						</li>
+						<li class="mo_sub_menu">
+							<a href="#">대여</a>
+						</li>
+					</ul>
+				</li>
+            </ul>
 			<div class="menu_bg"></div>
             <div class="header_tool_box">
                 <button onclick="searchBox()" class="btn_nomal"><i></i></button>
@@ -190,14 +324,14 @@
 				</form>
 			</div>
             <input type="checkbox" id="menuicon">
-            <label for="menuicon">
+            <label for="menuicon" class="hideMenuBut">
                 <span></span>
                 <span></span>
                 <span></span>
             </label>
         </header>
         <section class="page main_page">
-			<video class="back_video" src="./img/mov3_n1.mp4" type="video/mp4" loop autoplay muted></video>
+			<video class="back_video" src="./img/MMAA_mainVideo.mp4" type="video/mp4" loop autoplay muted></video>
             <div class="txt_box">
                 <h2 class="main_txt" style="animation-delay: 0s;">회원복지를 최우선으로</h2>
                 <h2 class="main_txt" style="animation-delay: 0.5s;">회원 곁에 군인공제회</h2>
@@ -216,7 +350,7 @@
             <p class="sub_title">상품 안내</p>
             <h2 class="title">MMAA 저축 & 대여</h2>
 			<div class="product_info_wrap">
-				<h3 class="product_info">내 돈 관리,<br> <strong>저축</strong>부터 <strong>대여</strong>까지 스마트하게</h3>
+				<h3 class="product_info">내 돈 관리,<br> <strong>저축</strong>부터 <strong>대여</strong>까지<br class="m_br"> 스마트하게</h3>
 				<p>현명한 여유자금 관리를 위한 군인공제회의 금융 상품을 만나보세요</p>	
 			</div>
 			<div class="products_slide">
@@ -310,7 +444,7 @@
         </section>
 		<section class="page service_page">
 			<h3>군인 및 군무원에 대한 효율적인 공제제도를 확립하여<br>
-				생활안정과 복지증진을 도모하고 국군의 전략향상에 이바지하겠습니다.
+				생활안정과 복지증진을 도모하고<br class="m_br"> 국군의 전략향상에 이바지하겠습니다.
 			</h3>
 			<ul class="service_con_box">
 				<li class="service_con">
@@ -348,8 +482,8 @@
 		</section>
 		<section class="page reservist_page">
 			<div class="reservist_txt_wrap">
-				<h3>전역 회원도 이용하는 제도, 어떤 혜택이 있나요?</h3>
-				<p>한번 회원은 평생회원, <br class="m_br"><strong>전역</strong> · <strong>퇴직</strong> 후에도 제도를 이용하며 안정된 생활을 이어가세요!</p>
+				<h3>전역 회원도 이용하는 제도, <br class="m_br">어떤 혜택이 있나요?</h3>
+				<p>한번 회원은 평생회원, <br class="m_br"><strong>전역</strong> · <strong>퇴직</strong> 후에도 제도를 이용하며<br class="m_br"> 안정된 생활을 이어가세요!</p>
 				<div class="shortcut_but">
 					<a href="#">자세히 보기</a>
 				</div>	

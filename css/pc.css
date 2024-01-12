@@ -1,3 +1,4 @@
+@media all and (min-width : 1252px) {
 /* 공통영역 */
 header{
     position: fixed; z-index: 999;
@@ -22,7 +23,9 @@ header{
 .m_br{
     display: none;
 }
-
+.mo_top_menu_wrap{
+    display: none;
+}
 /* 공통영역 끝*/
 /* 헤더 ==================================================================*/
 header a{
@@ -211,7 +214,7 @@ header img{
     background-color: #ffffff;
     border-radius: 6px;
     padding: 24px; box-sizing: border-box;
-    position: fixed; top: calc(50% - 180px); left: calc(50% - 215px); z-index: 5;
+    position: fixed; top: calc(50% - 215px); left: calc(50% - 180px); z-index: 5;
 }
 .modalClose{
     display: block;
@@ -475,7 +478,7 @@ header img{
 }
 .service_con i{
     position: absolute; bottom: 1.2rem; left: 1.5rem; z-index: -1;
-    width: 8rem; height: 8rem;
+    width: 7rem; height: 7rem;
     filter: grayscale(100%) brightness(50%);
 }
 .service_con:nth-child(1) i{
@@ -484,7 +487,7 @@ header img{
     background-size: contain;
 }
 .service_con:nth-child(2) i{
-    width: 7rem; height: 7rem;
+    width: 6rem; height: 6rem;
     background: url(../img/thr_icon2.png);
     background-repeat: no-repeat;
     background-size: contain;
@@ -615,7 +618,7 @@ header img{
     border-bottom-right-radius: 3rem;
 }
 .latest_con h4{
-    font-size: 1.8rem; height: 5rem;
+    font-size: 1.5rem; height: 5rem;
     padding: 0.8rem; box-sizing: border-box;
 }
 .latest_con span{
@@ -669,7 +672,8 @@ header img{
 }
 .sns_link{
     display: block;
-    width: calc(90% / 4); height: 5rem;
+    width: calc(90% / 4); min-width: 275px;
+    height: 5rem;
     display: flex; justify-content: space-around; align-items: center;
     padding: 0.5rem 1rem; box-sizing: border-box;
     border: 1px solid #ddd;
@@ -753,7 +757,7 @@ footer{
     display: flex; justify-content: space-around; align-items: center;
 }
 .footer_top_wrap{
-    width: calc(95% - 800px);
+    width: calc(95% - 500px);
     font-size: 1rem;
     display: flex; justify-content: space-around; align-items: center;
 }
@@ -781,3 +785,5 @@ footer{
     padding: 0.3rem 1rem; box-sizing: border-box;
 }
 /* 푸터 끝 ====================================================================*/
+
+}

@@ -53,7 +53,6 @@ function searchBox() {
     header.style.backgroundColor = headerBg[searchNum];
 }
 
-
 // 추천검색어 클릭하면 inputText 창에 입력되게 하기
 function tagSearch(tag){
     const searchInput = document.querySelector("#searchTxt");
@@ -86,6 +85,25 @@ modalClose.addEventListener('click',modalOpen);
 
 // 모달 블러 배경 눌렀을 때 닫히게 하기
 modalBg.addEventListener('click',modalOpen);
+
+// 탭/모바일 숨김메뉴 토글
+const hideMenuBut = document.querySelector(".hideMenuBut");
+const hideMenu = document.querySelector(".mo_top_menu_wrap");
+const moMenus = document.querySelectorAll(".mo_top_menu_wrap li")
+let hideMenuNum = 0;
+
+hideMenuBut.addEventListener('click',hideMenuToggle);
+
+function hideMenuToggle(){
+    const hideMenuArr = ["hidden","visible"]
+    hideMenuNum = 1 - hideMenuNum;
+    hideMenu.style.visibility = hideMenuArr[hideMenuNum];
+
+    // hideMenu가 visible이 되면 moMenus에 mainMinTxtMove 애니메이션 실행
+    moMenus.forEach(menu => {
+        menu.style.animation = hideMenu.style.visibility === "hidden" ? "none" : "mainMinTxtMove 1s";
+    });
+}
 
 // 스크롤이벤트 ==============================================================
 // 1. 배경 어두운 페이지에서 헤더 색상 변경
@@ -160,7 +178,7 @@ const swiperObserver = new IntersectionObserver(
 latestNewsBox.forEach((News) => swiperObserver.observe(News));
 // 2-2) 끝
 
-// 2-3) 플러스가 되는 소식
+// 2-3) 플러스가 되는 소식 (오른쪽에서 중앙으로)
 const plusNewsPage = document.querySelector(".plusNews_page");
 const plusNewsBox = document.querySelector(".plus_news_box");
 
