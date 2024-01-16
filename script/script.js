@@ -48,6 +48,7 @@ function searchBox() {
     searchNum = 1 - searchNum; // 0 <=> 1 토글용 변수
 
     searchBg.style.opacity = searchNum;
+    searchBg.style.visibility = searchNum ? 'visible' : 'hidden';
     headerSrhBtn.classList.remove(searchNum ? "btn_nomal" : "btn_on");
     headerSrhBtn.classList.add(searchNum ? "btn_on" : "btn_nomal");
     header.style.backgroundColor = headerBg[searchNum];
@@ -220,3 +221,13 @@ plusNewsObserver.observe(plusNewsPage);
 //         }
 //     });
 // }
+
+// header hover => 폰트 색상 검은색으로 변경
+header.addEventListener("mouseover", function() {
+    header.style.color = '#000000';
+});
+
+header.addEventListener("mouseout", function() {
+    header.style.color = '';
+});
+

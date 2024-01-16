@@ -40,4 +40,9 @@ button{
     border: none;
     cursor: pointer;
 }
-
+.modalWin{
+    z-index: 998;
+}
+.modal{
+    z-index: 999;
+}

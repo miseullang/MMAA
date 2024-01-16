@@ -67,9 +67,10 @@ header img{
 /* 검색버튼 클릭하면 열리는 검색창 */
 .search_bg{
     width: 100%; height: 250px;
-    position: absolute; top: 50px; left: 0; z-index: -2;
+    position: absolute; top: 120px; left: 0; z-index: -2;
     background-color: #ffffff;
     opacity: 0;
+    visibility: hidden;
 }
 .header:hover{
     background-color: #ffffff;
@@ -247,6 +248,7 @@ header img{
 .modalClose img{
     width: 12px; height: 12px;
     position: absolute; top: 0; right: 0;
+    cursor: pointer;
 }
 .modalLogo{
     width: 100%; height: 24px;
@@ -584,18 +586,9 @@ header img{
     transition: all 0.4s;
     overflow: hidden;
 }
-.shortcut_but a::before{
-    content: "";
-    position: absolute; top: 100%; left: 0; z-index: 99;
-    width: 100%; height: 100%;
-    background-color: #ffffff;
+.shortcut_but a:hover{
+    background-color: #ffffff; color: #111;
 }
-.shortcut_but a:hover ::before{
-    transform: translateY(-100%);
-}
-/* .shortcut_but a:hover{
-    color: #111;
-} */
 /* 예비군 안내 페이지 끝  =========================================================*/
 
 /* 최신 소식 =====================================================================*/
