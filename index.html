@@ -689,6 +689,17 @@
 				<option><a href="#">전쟁기념관</a></option>
 			</select>
 		</div>
+	        <div id="map" style="width:500px;height:400px;"></div>
+	        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=45a37b7faaa65e2e6d5033555d53798b"></script>
+	        <script>
+		  var container = document.getElementById('map');
+		  var options = {
+			  center: new kakao.maps.LatLng(33.450701, 126.570667),
+			  level: 3
+		  };
+
+		  var map = new kakao.maps.Map(container, options);
+	        </script>
 		<div class="bottom_footer">
 			<p class="flogo">
 				<img src="./img/f_logo.png" alt="군인공제회 로고">
